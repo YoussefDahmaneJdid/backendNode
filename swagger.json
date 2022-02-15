@@ -1,0 +1,106 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0", 
+      "title": "My EMPLOYEE Project CRUD",
+      "description": "My EMPLOYEE Project Application API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Employee",
+        "description": "API for EMPLOYEE in the system"
+      }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/employee/getAllEmployees": {
+          "get": {
+            "tags": ["get All Employees"],
+            "summary": "Get all Employees in db",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/models/employees"
+                }
+              }
+            }
+          }
+        },
+        "/employee/updateEmployee/:id": {
+          "get": {
+            "tags": ["Update Employee by id"],
+            "summary": "Update employee by id",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/models/employees"
+                }
+              }
+            }
+          }
+        },
+        "/employee/creerEmployee": {
+          "get": {
+            "tags": ["Create Employee"],
+            "summary": "create employee ",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/models/employees"
+                }
+              }
+            }
+          }
+        },
+        "/employee/getAllEmployeesBydp/:id": {
+          "get": {
+            "tags": ["get All Employees Bydp"],
+            "summary": "get employee by departement",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/models/employees"
+                }
+              }
+            }
+          }
+        }
+      },
+      
+      "definitions": {
+        "EMPLOYEE": {
+          "required": ["NOM", "_id", "PRENOM","DEPARTEMENT","DATE_ENTREE"],
+          "properties": {
+            "_id": {
+              "type": "string",
+              "uniqueItems": true
+            },
+            "NOM": {
+              "type": "string"
+            },
+            "PRENOM": {
+              "type": "string"
+            },
+            "DEPARTEMENT": {
+                "type": "string"
+            },
+            "DATE_ENTREE": {
+                "type": "date"
+            }
+          }
+        }
+       
+      }
+  }
