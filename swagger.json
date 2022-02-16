@@ -76,7 +76,50 @@
               }
             }
           }
+        },
+        "pointage/getByDate/:date": {
+          "get": {
+            "tags": ["filtre employee by date"],
+            "summary": "get employee by departement",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/models/employees"
+                }
+              }
+            }
+          }
+        },
+        "pointage/checkin/:id": {
+          "get": {
+            "tags": ["checkin employee"],
+            "summary": "get employee by departement",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/models/employees"
+                }
+              }
+            }
+          }
+        },
+        "pointage/checkout/:id": {
+          "get": {
+            "tags": ["checkout employee and calculate time between last checkin and checkout"],
+            "summary": "get employee by departement",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "schema": {
+                  "$ref": "#/models/employees"
+                }
+              }
+            }
+          }
         }
+        
       },
       
       "definitions": {
@@ -100,7 +143,30 @@
                 "type": "date"
             }
           }
+        },
+
+        "pointageEmployees": {
+          "required": ["IDENTIFIANT_EMPLOYEE", "CHECK_IN", "CHECK_OUT","COMMENTAIRE","TEMPS_ECOULE"],
+          "properties": {
+            "IDENTIFIANT_EMPLOYEE": {
+              "type": "string",
+              "uniqueItems": true
+            },
+            "CHECK_IN": {
+              "type": "date"
+            },
+            "CHECK_OUT": {
+              "type": "date"
+            },
+            "COMMENTAIRE": {
+                "type": "string"
+            },
+            "TEMPS_ECOULE": {
+                "type": "date"
+            }
+          }
         }
+        
        
       }
   }

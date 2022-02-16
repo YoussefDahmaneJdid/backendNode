@@ -1,5 +1,5 @@
 var {Employee} = require('../models/employees');
-const {dateTime} = require('../utils/getDateNow');
+const {getDateNow} = require('../utils/getDateNow');
 
 const {ObjectId} = require('mongodb');
 module.exports =  {
@@ -23,7 +23,7 @@ createOne : function(reqBody){
        IDENTIFIANT_EMPLOYEE :employeeID,
        NOM : reqBody.nom,
        PRENOM : reqBody.prenom,
-       DATE_ENTREE :dateTime,
+       DATE_ENTREE :getDateNow(),
        DEPARTEMENT: reqBody.departement
  
     });
